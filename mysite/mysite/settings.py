@@ -25,7 +25,7 @@ SECRET_KEY = 'fsv!8j=av2y%nb*y55^y33x==c4%#lcx#4*&@avg6=0gtte%y$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.meusite.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
