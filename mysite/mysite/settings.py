@@ -120,4 +120,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 START_ROOT=os.path.join(BASE_DIR,'static')
 
-#ALLOWED_HOSTS = ['127.0.0.1','.meusite.com']
