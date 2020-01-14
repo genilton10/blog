@@ -4,6 +4,15 @@
 		<title></title>
 	</head>
 		<body>
-			<h2>Hello Word</h2>
+			<div>
+				<h1>Blog do Zézinho</h1>
+			</div>
+			{% for post in posts %}
+			<div>
+				<p>publicado em: {{ post.published_date}}</p>
+				<h1>{{post.title}}</h1>
+				<p>{{ post.text|linebreaksbr}}</p>
+			</div>
+			{% endfor %}
 		</body>
 </html>
