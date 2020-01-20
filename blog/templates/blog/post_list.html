@@ -1,0 +1,17 @@
+
+{% extends 'blog/base.html' %}
+
+{% block dinamico %}
+		{% for post in posts %}
+			<div>
+				{% if user.is_authenticated or post.published_date%}
+				<p>publicado em: {{ post.published_date }}</p>
+				<h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+				{% if post.photo %}
+					<img src="{{ post.photo.url}}" alt=",,,"/>
+				{% endif %}
+				<p>{{ post.text|linebreaksbr}}</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	<div class="noticia">
+		<h1>Add Noticia</h1>
+		<form method="POST" enctype="multipart/form-data" class="noticia-form">{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="save btn-default">Add</button>
+		</form><br>
+	</div>
+{% endblock %}

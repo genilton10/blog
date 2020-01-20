@@ -1,0 +1,26 @@
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	<div class="noticia">
+		<span><a href="{% url 'noticia_edit' pk=noticia.pk %}">Editar Notícia</a></span>
+		<span><a href="{% url 'noticia_remove' pk=noticia.pk %}">Deletar Notícia</a></span>
+
+		{% if noticia.data_publicacao %}
+			<p>{{ noticia.data_publicacao }}</p>
+			<p>{{noticia.author}}</p>
+			<p>{{notica.area}}</p>
+		{% endif %}
+		{% if noticia.photo %}
+			<p><img src="{{ noticia.photo.url }}" alt="..."/></p>
+		{% endif %}
+			<p>{{notica.title}}</p>
+			<p>{{noticia.text}}</p>
+		{% if not noticia.data_publicacao %}
+			{{ noticia.publicar}}
+		{% endif %}
+		<form method="POST" class="noticia-form">{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="public btn-default">Publicar</button>
+		</form>
+	</div>
+	{% endblock %}

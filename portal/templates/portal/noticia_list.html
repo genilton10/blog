@@ -1,0 +1,28 @@
+
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	<body>
+		<div class="adicionar">
+			<a href="{% url 'noticia_new' %}">Add Notícia</a>
+		</div>
+		{% for noticia in noticias %}
+		<div class="noticia">
+			<section>
+				<header>
+					<h1>{{noticia.area}}</h1>
+				</header>
+					<article>
+						{% if noticia.photo %}
+						<img src="{{ noticia.photo.url }}" alt="..."/>
+						{% endif %}
+						<a href="{% url 'noticia_detail' pk=noticia.pk %}">{{ noticia.title}}</a>
+						<span><a href="{% url 'noticia_edit' pk=noticia.pk %}">Editar</a></span></p>
+						<p>{{ noticia.text}}</p>
+						<h1> por {{noticia.author}}</h1>
+					</article>
+			</section>
+		</div>
+		{% endfor %}
+	</body>	
+{% endblock %}

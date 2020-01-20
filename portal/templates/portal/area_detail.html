@@ -1,0 +1,26 @@
+
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	<div class="area">
+		<span><a href="{% url 'area_edit' pk=area.pk %}">Editar Area</a></span>
+		<span><a href="{% url 'area_remove' pk=area.pk %}">Deletar Area</a></span><br>
+		<p>
+		{% if area.descricao %}
+			{{ area.descricao }}
+		{% endif %}
+		</p>
+		<p>{{area.cor}}<p>
+		<p>{{area.status}}</p>
+
+		{% if not area.status %}
+				{{ area.ativar}}
+		{% endif %}
+		<div>
+		<form method="POST" class="area-form">{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="public btn-default">Ativar</button>
+		</form>
+		</div>
+	</div>
+{% endblock %}

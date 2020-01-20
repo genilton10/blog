@@ -1,0 +1,13 @@
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	<body>
+		<div class="area">
+			<h2>Pagina de Edição</h2>
+		<form method="POST" enctype="multpart/form-data" class="area-form">{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="save btn-default">Alterar</button>
+		</form>
+		</div>
+	</body>
+{% endblock %}

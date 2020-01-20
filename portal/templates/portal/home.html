@@ -1,0 +1,43 @@
+
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	<body>
+		<div class="home">
+			<table>
+				<tr>
+					<td>
+						<div class="home-noticia">
+							<h4>Noticias</h4>
+							{% for noticia in noticias %}
+								{% for area in areas %}
+									<div class="noticia">
+									{% if noticia.area==area.descricao %}
+									<section>
+										<header>
+											<h1>{{noticia.area}}</h1>
+										</header>
+											<article>
+												{% if noticia.photo %}
+												<img src="{{ noticia.photo.url }}" alt="..."/>
+												{% endif %}
+												<a href="{% url 'noticia_detail' pk=noticia.pk,  %}">{{ noticia.title}}</a>
+												<span><a href="{% url 'noticia_edit' pk=noticia.pk %}">Editar</a></span></p>
+												<p>{{ noticia.text}}</p>
+												<h1> por {{noticia.author}}</h1>
+											</article>
+									</section>
+								</div>
+							{% endfor %}
+						</div>
+						</td>
+						<td>
+						<div class="home-area">
+							<p>Areas</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+{% endblock %}

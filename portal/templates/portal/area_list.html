@@ -1,0 +1,22 @@
+
+{% extends 'portal/base.html' %}
+
+{% block dinamico %}
+	<body>
+		<div class="adicionar">
+			<a href="{% url 'area_new' %}">Add Area</a>
+		</div>
+		{% for area in areas %}
+			<div class="area">
+			<section>
+				<header>
+					<h1><a href="{% url 'area_detail' pk=area.pk %}">
+					{{ area.descricao}}</a></h1>
+				</header>
+					<p>{{ area.cor}}</p>
+					<p>{{ area.status}}</p>
+			</section>
+			</div>
+		{% endfor %}
+	</body>
+{% endblock %}
