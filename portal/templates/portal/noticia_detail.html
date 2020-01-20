@@ -10,14 +10,18 @@
 			<p>{{noticia.author}}</p>
 			<p>{{notica.area}}</p>
 		{% endif %}
+
 		{% if noticia.photo %}
 			<p><img src="{{ noticia.photo.url }}" alt="..."/></p>
 		{% endif %}
+
 			<p>{{notica.title}}</p>
 			<p>{{noticia.text}}</p>
+
 		{% if not noticia.data_publicacao %}
 			{{ noticia.publicar}}
 		{% endif %}
+		
 		<form method="POST" class="noticia-form">{% csrf_token %}
 			{{ form.as_p }}
 			<button type="submit" class="public btn-default">Publicar</button>

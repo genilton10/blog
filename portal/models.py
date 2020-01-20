@@ -25,7 +25,7 @@ class Noticia(models.Model):
 	photo = models.ImageField(upload_to='imagens/', null=True, blank=True)
 	title = models.CharField(max_length=200)
 	text = models.TextField()
-	data_publicacao = models.DateTimeField(default=timezone.now())
+	data_publicacao = models.DateTimeField(default=timezone.now)
 	
 	def publicar(self):
 		self.data_publicacao = timezone.now()
